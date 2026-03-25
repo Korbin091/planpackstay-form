@@ -195,11 +195,15 @@ export default function IntakeForm() {
     return true;
   };
 
-  const submit = () => {
-    const out = { ...form, food: [...form.food, ...form.dietary, ...form.cafe, ...form.desserts], currency: cur };
-    console.log("Form submitted:", JSON.stringify(out, null, 2));
-    setDone(true);
-  };
+  const submit = (formData) => {
+  // Send to Make.com
+  fetch("https://hook.us2.make.com/wl4982s18ccunguscj3jkgupjwhb2vy7", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+};
+
 
   const inp = {
     width: "100%", padding: "14px 18px", borderRadius: 12, border: "2px solid #e8e8e8",
