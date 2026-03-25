@@ -11,7 +11,7 @@ const STYLES = [
   { id: "luxury", label: "Luxury", icon: "✨", desc: "Upscale, premium, spas" },
   { id: "foodie", label: "Foodie", icon: "🍽️", desc: "Best rated restaurants" },
   { id: "budget", label: "Budget", icon: "💰", desc: "Affordable, efficient" },
-  { id: "party", label: "Party", icon: "💃🏽", desc: "Nightlife, social, high energy" },
+  { id: "party", label: "Party", icon: "🎉", desc: "Nightlife, social, high energy" },
   { id: "romantic", label: "Romantic", icon: "💕", desc: "Intimate, scenic, date nights" },
   { id: "lgbtq", label: "LGBTQ+", icon: "🏳️‍🌈", desc: "Inclusive & queer-friendly" },
   { id: "creator", label: "Content Creator", icon: "📸", desc: "Aesthetic & photogenic spots" },
@@ -195,15 +195,11 @@ export default function IntakeForm() {
     return true;
   };
 
-  const submit = (formData) => {
-  // Send to Make.com
-  fetch("https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData)
-  });
-};
-
+  const submit = () => {
+    const out = { ...form, food: [...form.food, ...form.dietary, ...form.cafe, ...form.desserts], currency: cur };
+    console.log("Form submitted:", JSON.stringify(out, null, 2));
+    setDone(true);
+  };
 
   const inp = {
     width: "100%", padding: "14px 18px", borderRadius: 12, border: "2px solid #e8e8e8",
@@ -222,6 +218,14 @@ export default function IntakeForm() {
       fontFamily: "'Source Sans 3',sans-serif",
     }}>{label}</button>
   );
+  const handleSubmit = (formData) => {
+  // Send to Make.com
+  fetch("https://hook.us1.make.com/YOUR_WEBHOOK_URL_HERE", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+};
 
   if (done) {
     return (
