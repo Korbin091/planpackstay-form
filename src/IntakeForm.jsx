@@ -11,7 +11,7 @@ const STYLES = [
   { id: "luxury", label: "Luxury", icon: "✨", desc: "Upscale, premium, spas" },
   { id: "foodie", label: "Foodie", icon: "🍽️", desc: "Best rated restaurants" },
   { id: "budget", label: "Budget", icon: "💰", desc: "Affordable, efficient" },
-  { id: "party", label: "Party", icon: "🎉", desc: "Nightlife, social, high energy" },
+  { id: "party", label: "Party", icon: "💃🏽", desc: "Nightlife, social, high energy" },
   { id: "romantic", label: "Romantic", icon: "💕", desc: "Intimate, scenic, date nights" },
   { id: "lgbtq", label: "LGBTQ+", icon: "🏳️‍🌈", desc: "Inclusive & queer-friendly" },
   { id: "creator", label: "Content Creator", icon: "📸", desc: "Aesthetic & photogenic spots" },
