@@ -200,7 +200,14 @@ export default function IntakeForm() {
     console.log("Form submitted:", JSON.stringify(out, null, 2));
     setDone(true);
   };
-
+  const handleSubmit = (formData) => {
+  // Send to Make.com
+  fetch("https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+};
   const inp = {
     width: "100%", padding: "14px 18px", borderRadius: 12, border: "2px solid #e8e8e8",
     fontSize: 16, fontFamily: "'Source Sans 3',sans-serif", color: D, background: "#fff",
@@ -218,14 +225,7 @@ export default function IntakeForm() {
       fontFamily: "'Source Sans 3',sans-serif",
     }}>{label}</button>
   );
-  const handleSubmit = (formData) => {
-  // Send to Make.com
-  fetch("https://hook.us1.make.com/YOUR_WEBHOOK_URL_HERE", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData)
-  });
-};
+
 
   if (done) {
     return (
