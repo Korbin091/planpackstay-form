@@ -202,7 +202,7 @@ export default function IntakeForm() {
   };
   const handleSubmit = (formData) => {
   // Send to Make.com
-  fetch("https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
+  fetch("https://hook.us1.make.com/https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData)
