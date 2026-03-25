@@ -200,14 +200,18 @@ export default function IntakeForm() {
     console.log("Form submitted:", JSON.stringify(out, null, 2));
     setDone(true);
   };
-  const handleSubmit = (formData) => {
-  // Send to Make.com
-  fetch("https://hook.us1.make.com/https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData)
-  });
-};
+ const submit = () => {
+    const out = { ...form, food: [...form.food, ...form.dietary, ...form.cafe, ...form.desserts], currency: cur };
+
+    // Send to Make.com — replace YOUR_WEBHOOK_URL_HERE with your actual webhook URL
+    fetch("https://hook.us1.make.com/https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(out)
+    }).catch(err => console.error("Webhook error:", err));
+
+    setDone(true);
+  };
   const inp = {
     width: "100%", padding: "14px 18px", borderRadius: 12, border: "2px solid #e8e8e8",
     fontSize: 16, fontFamily: "'Source Sans 3',sans-serif", color: D, background: "#fff",
