@@ -199,7 +199,7 @@ export default function IntakeForm() {
     const out = { ...form, food: [...form.food, ...form.dietary, ...form.cafe, ...form.desserts], currency: cur };
 
     // Send to Make.com — replace YOUR_WEBHOOK_URL_HERE with your actual webhook URL
-    fetch("https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
+    fetch("https://hook.us1.make.com/YOUR_WEBHOOK_URL_HERE", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(out)
