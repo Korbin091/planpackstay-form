@@ -176,7 +176,7 @@ export default function IntakeForm() {
   const [foodTab, setFoodTab] = useState(0);
   const [done, setDone] = useState(false);
   const [form, setForm] = useState({
-    firstName: "", departing: "", destination: "",
+    firstName: "", email: "", departing: "", destination: "",
     dateStart: "", dateEnd: "", travelers: 2, budget: "",
     food: [], dietary: [], cafe: [], desserts: [],
     interests: "", styles: [],
@@ -188,7 +188,7 @@ export default function IntakeForm() {
   const cur = getCurrency(form.departing);
 
   const ok = () => {
-    if (step === 0) return form.firstName.trim().length > 0;
+    if (step === 0) return form.firstName.trim().length > 0 && form.email.includes("@");
     if (step === 1) return form.departing.trim().length > 0 && form.destination.trim().length > 0 && form.dateStart && form.dateEnd && form.budget;
     if (step === 2) return form.food.length > 0 || form.cafe.length > 0;
     if (step === 3) return form.styles.length > 0;
@@ -305,6 +305,11 @@ export default function IntakeForm() {
               <label style={lbl}>First Name *</label>
               <input type="text" placeholder="e.g. Sarah" value={form.firstName}
                 onChange={e => s("firstName", e.target.value)} style={inp} onFocus={inpFocus} onBlur={inpBlur} />
+              <div style={{ marginTop: 20 }}>
+                <label style={lbl}>Email *</label>
+                <input type="email" placeholder="e.g. sarah@email.com" value={form.email}
+                  onChange={e => s("email", e.target.value)} style={inp} onFocus={inpFocus} onBlur={inpBlur} />
+              </div>
               <div style={{ marginTop: 28, padding: "18px 20px", borderRadius: 14, background: "#f8fafb", border: "1px solid #e8eff3" }}>
                 <p style={{ color: "#aaa", fontSize: 13, margin: 0, lineHeight: 1.7 }}>
                   Free members get an online-only preview guide.<br />
