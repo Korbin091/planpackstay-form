@@ -206,6 +206,10 @@ export default function IntakeForm() {
     }).catch(err => console.error("Webhook error:", err));
 
     setDone(true);
+// Redirect to My Guides page after 5 seconds
+setTimeout(() => {
+  window.top.location.href = "https://planpackstay.com/my-guides";
+}, 15000);
   };
 
   const inp = {
@@ -234,7 +238,7 @@ export default function IntakeForm() {
         <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(20px,4vw,28px)", fontWeight: 400, fontStyle: "italic", color: "rgba(255,255,255,0.7)", margin: "0 0 8px", letterSpacing: 1 }}>And we're off!</p>
         <h1 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(28px,5vw,40px)", color: "#fff", fontWeight: 800, margin: "0 0 12px" }}>Your Guide is Being Built!</h1>
         <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "clamp(13px,2.2vw,17px)", maxWidth: 620, lineHeight: 1.7, margin: "0 0 36px" }}>
-          Hey {form.firstName}, wait a moment while we craft your personalized Complete Travel Guide to {form.destination}.
+          Hey {form.firstName}, we're crafting your personalized Complete Travel Guide to {form.destination}. You'll be redirected to your guides page in a moment...
         </p>
         <div style={{ background: "rgba(255,255,255,0.07)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 20, padding: "28px 32px", maxWidth: 420, width: "100%", textAlign: "left" }}>
           <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 11, textTransform: "uppercase", letterSpacing: 3, marginBottom: 14 }}>Trip Summary</div>
