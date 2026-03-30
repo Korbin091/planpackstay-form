@@ -208,7 +208,7 @@ export default function IntakeForm() {
     setDone(true);
 // Redirect to My Guides page after 5 seconds
 setTimeout(() => {
-  window.top.location.href = "https://planpackstay.com/my-guides";
+  window.top.location.href = "https://www.planpackstay.com/my-guides";
 }, 15000);
   };
 
