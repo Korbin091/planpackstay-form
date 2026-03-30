@@ -164,7 +164,7 @@ export default function AgencyIntakeForm() {
   const submit = () => {
     const out = { ...form, food: [...form.food, ...form.dietary, ...form.cafe, ...form.desserts], currency: cur };
     console.log("Agency form submitted:", JSON.stringify(out, null, 2));
-    fetch("https://hook.us1.make.com/YOUR_WEBHOOK_URL_HERE", {
+    fetch("https://hook.us2.make.com/xrz94v8yy3zio73crz1hlfjkhfe5qrvt", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(out)
