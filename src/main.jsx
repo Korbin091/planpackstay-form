@@ -1,9 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import IntakeForm from './IntakeForm.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import IntakeForm from "./IntakeForm";
+import AgencyIntakeForm from "./AgencyIntakeForm";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const path = window.location.pathname;
+const isAgency = path.includes("agency");
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <IntakeForm />
+    {isAgency ? <AgencyIntakeForm /> : <IntakeForm />}
   </React.StrictMode>
-)
+);
